@@ -1,0 +1,41 @@
+New log file opened at Mon Mar 09 13:54:40 PDT 2015 by 29226@Thomass-MacBook-Pro-2.local
+Taking next connection to: 54140
+New client attempting to connect on port: 54141-54140
+  Address = /172.16.219.127:54140
+This client on port 54141 has uuid 9180dd88-cf7b-4291-bb66-ee632449f9f1 configName activator humanReadableName Activator protocolVersion 1 featureTags Vector()
+Connected Clients: activator-9180dd88-cf7b-4291-bb66-ee632449f9f1
+Taking next connection to: 54140
+New client attempting to connect on port: 54142-54140
+  Address = /172.16.219.127:54140
+Handshake exception on socket: 54142
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readInt(DataInputStream.java:387)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 54140
+New client attempting to connect on port: 54143-54140
+  Address = /172.16.219.127:54140
+This client on port 54143 has uuid 8a6b69e1-efdb-4d2f-8836-c4bfa829d0d5 configName activator humanReadableName Activator protocolVersion 1 featureTags Vector()
+Connected Clients: activator-9180dd88-cf7b-4291-bb66-ee632449f9f1, activator-8a6b69e1-efdb-4d2f-8836-c4bfa829d0d5
+Taking next connection to: 54140
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 54140
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 54140
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 54140
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 54140

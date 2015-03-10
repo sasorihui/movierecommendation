@@ -1,0 +1,63 @@
+@(userForm: Form[User], movielist: java.util.ArrayList[String])
+
+@import helper._
+
+@main("Register") {
+	<h1>Registration Form</h1>
+    <hr class="gray"/>
+	@helper.form(action = routes.Register.submit()){
+		@helper.inputText(userForm("username"), '_label -> "Username:")
+		@helper.inputText(userForm("email"), '_label -> "Email:")
+		@helper.inputText(userForm("confirm_email"), '_label -> "Confirm Email:")
+		@helper.inputText(userForm("password"), '_label -> "Password:")
+		@helper.inputText(userForm("confirm_password"), '_label -> "Confirm Password:")
+		<hr class="gray"/>
+		<h2>Rate These Ten Movies</h2>
+		@inputRadioGroup(
+          userForm("movie1"),
+          options = options("0"->"0","1"->"1","2"->"2","3"->"3","4"->"4","5"->"5"),
+          '_label -> movielist.get(0))
+        @inputRadioGroup(
+          userForm("movie2"),
+          options = options("0"->"0","1"->"1","2"->"2","3"->"3","4"->"4","5"->"5"),
+          '_label -> movielist.get(1))
+		@inputRadioGroup(
+          userForm("movie3"),
+          options = options("0"->"0","1"->"1","2"->"2","3"->"3","4"->"4","5"->"5"),
+          '_label -> movielist.get(2))
+		@inputRadioGroup(
+          userForm("movie4"),
+          options = options("0"->"0","1"->"1","2"->"2","3"->"3","4"->"4","5"->"5"),
+          '_label -> movielist.get(3))
+		@inputRadioGroup(
+          userForm("movie5"),
+          options = options("0"->"0","1"->"1","2"->"2","3"->"3","4"->"4","5"->"5"),
+          '_label -> movielist.get(4))
+		@inputRadioGroup(
+          userForm("movie6"),
+          options = options("0"->"0","1"->"1","2"->"2","3"->"3","4"->"4","5"->"5"),
+          '_label -> movielist.get(5))
+		@inputRadioGroup(
+          userForm("movie7"),
+          options = options("0"->"0","1"->"1","2"->"2","3"->"3","4"->"4","5"->"5"),
+          '_label -> movielist.get(6))
+		@inputRadioGroup(
+          userForm("movie8"),
+          options = options("0"->"0","1"->"1","2"->"2","3"->"3","4"->"4","5"->"5"),
+          '_label -> movielist.get(7)) 
+		@inputRadioGroup(
+          userForm("movie9"),
+          options = options("0"->"0","1"->"1","2"->"2","3"->"3","4"->"4","5"->"5"),
+          '_label -> movielist.get(8))
+		@inputRadioGroup(
+          userForm("movie10"),
+          options = options("0"->"0","1"->"1","2"->"2","3"->"3","4"->"4","5"->"5"),
+          '_label -> movielist.get(9))          
+		<input type="submit" class="btn primary" value="submit">
+    }
+    
+    @helper.form(action = routes.Register.submit()){
+        <input type="submit" value="load">
+    }
+
+}

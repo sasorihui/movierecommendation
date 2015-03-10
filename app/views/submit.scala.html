@@ -1,0 +1,13 @@
+@(created: User)
+
+@main("Example") {
+	
+	<p>Username: @created.username</p>
+	<h1>LAST TEN MOVIES RATED</h1>
+    <ul>
+    @for(i <- 0 to created.ratingssize-1 ){
+        <li>@created.getMovie(i) : @created.getRating(i)</li>
+    }
+	</ul>
+}
+	

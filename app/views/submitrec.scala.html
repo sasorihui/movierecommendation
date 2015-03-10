@@ -1,0 +1,18 @@
+@(olddata: User, newdata: User)
+
+@main("Example") {
+	
+	<h1>Old Data</h1>
+    <ul>
+    <li>TREEMAP: @olddata.userdata.toString()</li>
+	</ul>
+	
+	<h1>New Data</h1>
+	<ul>
+    @for(i <- 0 to newdata.ratingssize-1 ){
+        <li>@newdata.getMovie(i) : @newdata.getRating(i)</li>
+    }
+    <li>TREEMAP: @newdata.userdata.toString()</li>
+	</ul>
+}
+	
