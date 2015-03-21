@@ -11,6 +11,12 @@ import java.io.IOException;
 import java.util.Map.Entry;
 
 
+//Added by Daniel
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
+
 public class Register extends Controller {
 
 	final static Form<User> userForm = Form.form(User.class);
@@ -62,7 +68,9 @@ public class Register extends Controller {
     }
     
     public static Result submitrec() throws IOException {
-        
+        //Added by Daniel
+        PrintWriter outw = new PrintWriter(new BufferedWriter(new FileWriter("data/dataset.csv", true)));
+
         Form<User> filledForm = userForm.bindFromRequest();
     	User newdata = filledForm.get();
     	newdata.addToRatings(movieIds);
@@ -70,9 +78,13 @@ public class Register extends Controller {
 
     	for(int i = 0; i < newdata.ratingssize; i++)
     	{
+    	    //Added by Daniel
+    	    System.out.println("2," + newdata.movies.get(i) + "," + newdata.ratings.get(i));
+    	    outw.println("2," + newdata.movies.get(i) + "," + newdata.ratings.get(i)+".0");
     	    olddata.userdata.put(newdata.movies.get(i), newdata.ratings.get(i));
     	}
-
+    	//Added by Daniel
+        outw.close();
     	allusers.addToAll("2", olddata);
     	olddata.simmovies.clear();
     	movieIds.clear();
