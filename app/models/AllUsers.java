@@ -295,6 +295,91 @@ public class AllUsers {
 		
 		return true;
 	}
+	
+	// Implemented Pearson by Hui's code
+	/*
+	public static void checkForSimUsers(String user, ArrayList<Integer> movies){
+
+		TreeMap<Integer, Integer> userMap = allusers.get(user).userdata;
+		ArrayList<String> userList = new ArrayList<String>();
+
+		pearson(user, userMap, userList);
+
+		for(int i = 0; i < userList.size(); i++){
+			User temp = allusers.get(userList.get(i));
+			for(Entry<Integer, Integer> values : temp.userdata.entrySet()){
+				if(!userMap.containsKey(values.getKey()) && !movies.contains(values.getKey()) && movies.size() < 10){
+					movies.add(values.getKey());
+					break;
+				}
+			}
+
+		}
+
+	}
+
+	public static void pearson(String user, TreeMap<Integer, Integer> userMap, 
+			ArrayList<String> userList) {
+		double avg = 0, top = 0, bottom_x = 0,bottom_y = 0, similarity = 0;
+		double[] averages = new double[allusers.keySet().size()];
+		double[] x_values = new double[allmovies.size()];
+		double[] y_values;
+		TreeMap<Double, String> similarities = new TreeMap<Double, String>();
+
+		
+		for (String u : allusers.keySet()) {
+			for (int m : allusers.get(u).userdata.keySet()) {
+				avg += allusers.get(u).userdata.get(m);
+			}
+			avg = avg / allmovies.size();
+			averages[Integer.parseInt(u) - 1] = avg;
+		}
+
+		for (int i = 1; i <= allmovies.size(); i++) {
+			if (allusers.get(user).userdata.containsKey(i)) {
+				x_values[i-1] = allusers.get(user).userdata.get(i) - averages[Integer.parseInt(user) - 1];
+			} else {
+				x_values[i-1] = 0 - averages[Integer.parseInt(user) - 1];
+			}
+		}
+		
+		for (String uid : allusers.keySet()) {
+			y_values = new double[allmovies.size()];
+			similarity = 0;
+			
+			for (int i = 1; i < allmovies.size(); i++) {
+				if (allusers.get(uid).userdata.containsKey(i)) {
+					y_values[i-1] = allusers.get(uid).userdata.get(i) - averages[Integer.parseInt(uid) -1];
+				} else {
+					y_values[i-1] = 0 - averages[Integer.parseInt(uid) - 1];
+				}
+			}
+						
+			for (int j = 0; j < allmovies.size(); j++) {
+				top += x_values[j]*y_values[j];
+				bottom_x += x_values[j] * x_values[j];
+				bottom_y += y_values[j]*y_values[j];
+			}
+			similarity = top/(Math.sqrt(bottom_x) * Math.sqrt(bottom_y));
+			similarities.put(similarity, uid);
+
+			top = 0;
+			bottom_x = 0;
+			bottom_y = 0;
+		}
+		
+		NavigableMap<Double,String> nmap = similarities.descendingMap();
+		int count = 10;
+		for (double i : nmap.keySet()) {
+			if  (count > 0 && !user.equals(nmap.get(i))) {
+				userList.add(nmap.get(i).toString());
+				count -- ;
+			}
+		}
+		
+
+	} */
+
     
     
 }
